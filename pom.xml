@@ -50,12 +50,35 @@
             <scope>runtime</scope>
             <optional>true</optional>
         </dependency>
+
+        <!-- SENTRY DEPENDENCIES -->
+
         <dependency>
             <groupId>io.sentry</groupId>
             <artifactId>sentry-spring-boot-starter-jakarta</artifactId>
             <version>7.19.1</version>
         </dependency>
+        
+        <!-- to use Logback -->
+        <dependency>
+            <groupId>io.sentry</groupId>
+            <artifactId>sentry-logback</artifactId>
+            <version>7.19.1</version>
+        </dependency>
 
+        <!-- to use Log4j2 -->
+        <dependency>
+            <groupId>io.sentry</groupId>
+            <artifactId>sentry-log4j2</artifactId>
+            <version>7.19.1</version>
+        </dependency>
+
+        <!-- to use Sentry Database -->
+        <dependency>
+            <groupId>io.sentry</groupId>
+            <artifactId>sentry-jdbc</artifactId>
+            <version>7.19.1</version>
+        </dependency>
 
     </dependencies>
 
@@ -80,6 +103,12 @@
 
                     <!-- in case you're self hosting, provide the URL here -->
                     <url>http://localhost:8081/</url>
+
+                    <!--  Disable the plugin -->
+                    <skip>false</skip>
+
+                    <!--  Disable auto-install of SDK and Integrations -->
+                    <skipAutoInstall>false</skipAutoInstall>
 
                     <!-- provide your auth token via SENTRY_AUTH_TOKEN environment variable -->
                     <authToken>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</authToken>
