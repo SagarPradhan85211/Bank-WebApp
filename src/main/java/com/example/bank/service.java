@@ -29,7 +29,7 @@ public class service {
     public String deposite(String accountno, double amount) {
 
         account acc = repo.findByAccountNo(accountno);
-        if (acc == null) {
+        if (ac == null) {
             return "Account not found";
         }
         if (amount <= 0) {
