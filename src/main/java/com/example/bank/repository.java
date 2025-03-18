@@ -9,6 +9,6 @@ public interface repository extends JpaRepository<account,Long>{
     // Optional<account> findByAccountNo(String accountno);
     // boolean existsByaccno(String accountno);
 
-    accoun findByAccountNo(String accountNo);
+    account findByAccountNo(String accountNo);
     
 }
