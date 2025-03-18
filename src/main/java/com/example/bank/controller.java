@@ -18,7 +18,7 @@ public class controller {
     @PostMapping("/create")
     public String createaccount(@RequestParam String accountno, @RequestParam String name, @RequestParam String phone) {
 
-        return bank.createaccount(accountno, name, phone);
+        return ban.createaccount(accountno, name, phone);
     }
 
     @GetMapping("/deposite")
