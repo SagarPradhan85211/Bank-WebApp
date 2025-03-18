@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>main</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-image: url(background.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            overflow: hidden;
+        }
+
+        .heading {
+            text-align: center;
+            background-color: black;
+            color: white;
+            font-size: 50px;
+            position: fixed;
+            width: 100%;
+        }
+
+        .boi-logo {
+            position: fixed;
+            top: 0px;
+            width: fit-content;
+            height: 86px;
+        }
+
+        .rbi-logo {
+            position: fixed;
+            bottom: 0px;
+            right: 0px;
+        }
+
+        .sidebar {
+            margin: 0;
+            padding: 15px;
+            position: fixed;
+            top: 105px;
+        }
+
+        h1 {
+            color: black;
+        }
+
+        a {
+            text-decoration: none;
+            font-size: 25px;
+            border: 2px solid black;
+            border-radius: 10px;
+            padding: 5px;
+            background-color: white;
+            color: black;
+        }
+
+        ol.list {
+            list-style: none;
+        }
+
+        ol.list li {
+            margin: 10px;
+        }
+
+        a:hover {
+            background-color: red;
+        }
+
+        .count {
+            position: fixed;
+            bottom: 50px;
+            left: 250px;
+        }
+
+        .acc {
+            text-align: center;
+            font-size: 30px;
+        }
+
+
+
+        .amount {
+            position: fixed;
+            bottom: 50px;
+            left: 500px;
+        }
+
+        .amt {
+            text-align: center;
+            font-size: 30px;
+        }
+
+
+
+        .search {
+            position: fixed;
+            left: 300px;
+            margin: 200px;
+            border: 1px solid black;
+            height: 100px;
+            background-color: white;
+        }
+
+        .table,
+        th {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        .table,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        .table,
+        thead {
+            width: 700px;
+            height: 50px;
+            font-size: 20px;
+            background-color: green;
+        }
+
+        .table,
+        tbody {
+            width: 700px;
+            height: 50px;
+            font-size: 20px;
+            text-align: center;
+            background-color: white;
+        }
+
+        .search-button {
+            position: fixed;
+            left: 40px;
+            margin: 200px;
+            height: 100px;
+            text-align: center;
+        }
+
+        input[type="number"] {
+            height: 30px;
+            width: 150px;
+            border-color: black;
+            border-radius: 10px;
+        }
+
+        input[type="submit"] {
+            height: 30px;
+            width: 100px;
+            background-color: blue;
+            border-color: black;
+            border-radius: 10px;
+        }
+
+        #searching {
+            font-size: 18px;
+            color: white;
+            padding: 2px;
+        }
+
+        #searching:hover {
+            background-color: red;
+        }
+
+        #message {
+            color: green;
+            font-size: 15px;
+        }
+
+        h3 {
+            color: black;
+        }
+
+        .logout {
+            position: fixed;
+            right: 35px;
+            top: 25px;
+        }
+
+        #logout-button {
+            font-size: 20px;
+            padding: 3px;
+            background-color: blue;
+            color: white;
+            border-radius: 10px;
+        }
+
+        #logout-button:hover {
+            background-color: red;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="heading">
+        <h2>Bank of India</h2>
+    </div>
+    <div>
+        <img src="BOI.jpg" alt="" class="boi-logo">
+    </div>
+    <div class="logout">
+        <button id="logout-button">Logout</button>
+    </div>
+    <div class="sidebar">
+        <h1>Actions</h1><br>
+        <ol class="list">
+            <li><a href="create.html">Create</a></li><br>
+            <li><a href="deposite.html">Deposite</a></li><br>
+            <li><a href="withdraw.html">Withdraw</a></li><br>
+            <li><a href="delete.html">Delete</a></li><br>
+            <li><a href="update.html">Update</a></li><br>
+        </ol>
+        <h1></h1>
+    </div>
+
+    <div class="search-button">
+        <form id="search-button">
+            <h3>Search Account Details</h3><br>
+            <input type="number" name="accno" id="account" placeholder="Enter account no"><br><br>
+            <input type="submit" id="searching" value="search">
+            <div id="message">
+                <p></p>
+            </div>
+        </form>
+    </div>
+
+    <div class="search">
+        <form id="search">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Account No</th>
+                        <th>Name</th>
+                        <th>Phone No</th>
+                        <th>Account Balance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td id="account-no">
+                            <p>XXXX</p>
+                        </td>
+                        <td id="name">
+                            <p>XXXX</p>
+                        </td>
+                        <td id="phone">
+                            <p>XXXX</p>
+                        </td>
+                        <td id="balance">
+                            <p>XXXX</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+    <script>
+
+        window.onload = function () {
+            if (localStorage.getItem("isLoggedIn") !== "true") {
+                window.location.href = "invalid.html";
+            }
+        };
+
+        const logout = document.querySelector(".logout");
+
+        logout.addEventListener("click", async (event) => {
+            event.preventDefault();
+            window.location.href = "logout.html";
+        });
+
+        const search = document.querySelector("#search-button");
+        const details = document.querySelector("#search");
+
+        search.addEventListener("submit", async (event) => {
+
+            event.preventDefault();
+            const accountno = document.querySelector("#account").value;
+            if (accountno == '') {
+                alert("Enter account no first");
+            }
+            else {
+                const response = await fetch(`/details?accountno=${accountno}`, { method: `GET` });
+                if (response.ok) {
+                    const result = await response.json();
+                    document.querySelector("#account-no").innerText = result.accountNo;
+                    document.querySelector("#name").innerText = result.name;
+                    document.querySelector("#phone").innerText = result.phone;
+                    document.querySelector("#balance").innerText = result.balance;
+                    document.querySelector("#message").innerText = "Account Fetch Successfully !";
+                    search.reset();
+                }
+                else {
+                    const result = await response.text();
+                    alert(result);
+                    search.reset();
+                }
+
+            }
+        });
+
+
+    </script>
+</body>
+
+</html>

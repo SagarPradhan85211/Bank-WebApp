@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        body {
+            background-image: url(background.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            overflow: hidden;
+        }
+
+        .form {
+            border: 2px solid black;
+            padding: 10px;
+            margin: 100px auto;
+            width: 350px;
+            height: 500px;
+            border-radius: 50px;
+            background-color: white;
+        }
+
+        #login {
+            font-size: 15px;
+            padding: 3px;
+            background-color: blue;
+            color: white;
+            width: 80px;
+            height: 25px;
+            border-radius: 5px;
+        }
+
+        #username,
+        #password {
+            text-align: left;
+            width: 120px;
+            height: 20px;
+            border-radius: 10px;
+        }
+
+
+        #login:hover {
+            background-color: red;
+        }
+
+        .login-logo {
+            border-radius: 60%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form">
+        <form class="login-form">
+            <img src="loginlogo.png" alt="" class="login-logo">
+            <h2>Employee login !</h2><br>
+            <div class="user">
+                <label for="username">Username</label><br>
+                <input type="text" id="username" name="username" placeholder="enter username">
+            </div><br>
+
+            <div class="pass">
+                <label for="password">Password</label><br>
+                <input type="password" id="password" name="password" placeholder="enter password">
+            </div><br>
+
+            <div>
+                <input type="submit" id="login" value="Login">
+            </div>
+        </form>
+    </div>
+    <script>
+
+        setTimeout(function () {
+            localStorage.removeItem("isLoggedIn"); // Redirect to login page
+        }, 2000);
+
+        const login = document.querySelector(".login-form");
+        const submit = document.querySelector("#login");
+        login.addEventListener("submit", (event) => {
+            event.preventDefault();
+
+            const user = document.querySelector("#username").value;
+            const pass = document.querySelector("#password").value;
+
+            let username = `username`;
+            let password = `password`;
+
+            if (user == username && pass == password) {
+                localStorage.setItem("isLoggedIn", "true");
+                window.location.href = `main.html`;
+            }
+            else {
+                alert("incorrect username and password");
+            }
+            login.reset();
+
+        });
+    </script>
+</body>
+
+</html>

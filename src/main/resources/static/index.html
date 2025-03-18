@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banking</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-image: url(bg.jpg);
+            background-repeat: no-repeat;
+            background-size:cover;
+            overflow: hidden;
+
+        }
+
+        .navbar {
+            background-color: black;
+            position: fixed;
+            width: 100%;
+        }
+
+        .logo {
+            color: white;
+            text-align: center;
+            font-size: 30px;
+        }
+
+        a {
+            text-decoration: none;
+            gap: 10px;
+            color: blue;
+        }
+
+        a:hover {
+            color: red;
+        }
+
+        .menu {
+            font-size: 25px;
+            position: absolute;
+            top: 35px;
+            left: 370px;
+            display: flex;
+            gap: 25px;
+        }
+
+        .bank-logo {
+            width: 80px;
+            height: 69px;
+            position: fixed;
+            top: 0px;
+        }
+
+        .details {
+            position: fixed;
+            bottom: 150px;
+            left: 10px;
+            color: white;
+        }
+
+        .rbi {
+            position: fixed;
+            bottom: 0px;
+            width: 250px;
+            height: 150px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <h1>Bank of India</h1>
+        </div>
+        <div class="menu">
+            <a href="https://bankofindia.co.in/about-us">About Us</a>
+            <a href="login.html">Login</a>
+        </div>
+        <img src="BOI.jpg" alt="" class="bank-logo">
+    </div>
+    <div class="details">
+        <h2>Branch - xxxxxxxx</h2>
+        <h2>IFSC - xxxxxxx</h2>
+        <h2>CIF - xxxxxx</h2>
+    </div>
+    <div>
+        <img src="rbi.jpg" alt="" class="rbi">
+    </div>
+</body>
+
+</html>

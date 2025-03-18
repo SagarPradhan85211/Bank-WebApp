@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>deposite</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            font-style: oblique;
+        }
+
+        body {
+            background-image: url(background.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 26px;
+        }
+
+        .deposite {
+            position: fixed;
+            left: 600px;
+            margin: 120px auto;
+            border: 2px solid black;
+            width: 300px;
+            height: 290px;
+            border-top-left-radius: 25px;
+            border-bottom-right-radius: 25px;
+            background-color: white;
+        }
+
+        #account {
+            margin: 20px;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 130px;
+            height: 20px;
+            border-top-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+            text-align: left;
+        }
+
+        input[type="submit"] {
+            padding: 3px;
+            border-top-left-radius: 4px;
+            border-bottom-right-radius: 4px;
+            background-color: blue;
+            color: white;
+        }
+
+        label {
+            font-size: 20px;
+        }
+
+        #message {
+            font-size: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="deposite">
+        <h1 id="account">Deposite Money</h1>
+        <form id="deposite">
+            <div id="account">
+                <label for="account-no">Account No</label><br>
+                <input type="number" name="account-no" id="account-no" placeholder="Enter Acc No">
+            </div>
+            <div id="account">
+                <label for="amount">Amount</label><br>
+                <input type="number" name="amount" id="amount" placeholder="Enter amount">
+            </div>
+            <div id="account">
+                <input type="submit" id="submit" value="Deposite">
+            </div>
+            <div id="message">
+                <p></p>
+            </div>
+        </form>
+    </div>
+    <script>
+
+        window.onload = function () {
+            if (localStorage.getItem("isLoggedIn") !== "true") {
+                window.location.href = "invalid.html";
+            }
+        };
+
+        const form = document.querySelector("#deposite");
+        const submit = document.querySelector("#submit");
+        form.addEventListener("submit", async (event) => {
+
+            event.preventDefault();
+
+            const accountno = document.querySelector("#account-no").value;
+            const amount = document.querySelector("#amount").value;
+            if (accountno == '' || amount == '') {
+                alert("Enter Details Properly");
+            }
+            else {
+                const response = await fetch(`/deposite?accountno=${accountno}&amount=${amount}`, { method: `GET` });
+                const result = await response.text();
+                if (response.ok) {
+                    document.querySelector("#message").innerText = result;
+                    form.reset();
+                }
+                else {
+                    alert(result);
+                    form.reset();
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

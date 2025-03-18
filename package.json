@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@sentry/browser": "^9.6.0",
+    "@sentry/react": "^9.6.0"
+  }
+}
