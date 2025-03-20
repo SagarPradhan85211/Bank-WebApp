@@ -1,1 +1,1 @@
-![Alt text](.\Bank-Application-main\img.png)
+![Project Screenshot](.\Bank-Application-main\img.png)
