@@ -1,1 +1,4 @@
-![Project Screenshot](.\Bank-Application-main\img.png)
+![Project Screenshot]
+
+
+<img src="img.png">
