@@ -17,7 +17,7 @@ public class service {
         if (account != null) {
             return ("Account Number Already exists");
         }
-        account acc = new account();
+        account acc= new account();
         acc.setAccountNo(accountno);
         acc.setName(name);
         acc.setPhone(phone);
