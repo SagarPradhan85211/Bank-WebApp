@@ -105,7 +105,7 @@
                     <project>banking</project>
 
                     <!-- in case you're self hosting, provide the URL here -->
-                    <url>http://localhost:8081/</url>
+                    <url>http://localhost:8080/</url>
 
                     <!-- provide your auth token via SENTRY_AUTH_TOKEN environment variable -->
                     <authToken>${env.SENTRY_AUTH_TOKEN}</authToken>

@@ -14,7 +14,6 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(Exception.class)
     public ResponseEntity<String> handleException(Exception ex, HttpServletRequest request) {
 
-        // Send exception to Sentry
         Sentry.withScope(scope -> {
             scope.setExtra("api_path", request.getRequestURI());
             scope.setExtra("method", request.getMethod());
