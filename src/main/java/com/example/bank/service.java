@@ -1,9 +1,7 @@
-
 package com.example.bank;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 
 @Service
 public class service {
@@ -17,7 +15,7 @@ public class service {
         if (account != null) {
             return ("Account Number Already exists");
         }
-        account acc= new account();
+        account acc = new account();
         acc.setAccountNo(accountno);
         acc.setName(name);
         acc.setPhone(phone);
@@ -87,8 +85,8 @@ public class service {
         if (acc == null) {
             return "Account not found";
         }
-        if(acc.getBalance()>0){
-           return "Please Withraw all money first";
+        if (acc.getBalance() > 0) {
+            return "Please Withraw all money first";
         }
         repo.delete(acc);
         return "Deleted Successfully";

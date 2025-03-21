@@ -35,20 +35,19 @@ public class controller {
     public String delete(@RequestParam String accountno) {
         return bank.delete(accountno);
     }
+
     @GetMapping("/details")
     public ResponseEntity<?> getDetails(@RequestParam String accountno) {
         account acc = bank.getDetails(accountno);
         if (acc == null) {
-            return  ResponseEntity.status(HttpStatus.NOT_FOUND).body("Account not found");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Account not found");
         }
         return ResponseEntity.ok(acc);
     }
 
     @PostMapping("/update")
-    public String update(@RequestParam String accountno ,@RequestParam String name, @RequestParam String phone) {
+    public String update(@RequestParam String accountno, @RequestParam String name, @RequestParam String phone) {
         return bank.update(accountno, name, phone);
     }
-
-    
 
 }
